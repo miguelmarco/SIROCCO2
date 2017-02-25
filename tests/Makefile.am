@@ -1,0 +1,11 @@
+check_PROGRAMS = sirocco_test sirocco_minimal_test
+sirocco_test_SOURCES = sirocco_test.cpp
+sirocco_test_LDADD = @top_builddir@/lib/libsirocco.la
+sirocco_test_DEPENDENCIES = @top_builddir@/lib/libsirocco.la
+sirocco_test_LDFLAGS = -lm -lmpfr -lgmp
+sirocco_minimal_test_SOURCES = sirocco_minimal_test.cpp
+sirocco_minimal_test_LDADD = @top_builddir@/lib/libsirocco.la
+sirocco_minimal_test_DEPENDENCIES = @top_builddir@/lib/libsirocco.la
+sirocco_minimal_test_LDFLAGS = -lm -lmpfr -lgmp
+TESTS = sirocco_test sirocco_minimal_test
+AM_CPPFLAGS = -I$(top_srcdir)/include
