@@ -14,7 +14,7 @@ cdef extern from "stdlib.h":
     void free(void* ptr)
 
 
-cdef extern from "sirocco.hpp":
+cdef extern from "sirocco.h":
     mpfr_t* homotopyPath_mp (int degree, mpfr_t *_coef, mpfr_t _y0R, mpfr_t _y0I, int prec)
     double * homotopyPath (int degree, double *_coef, double _y0R, double _y0I)
 
