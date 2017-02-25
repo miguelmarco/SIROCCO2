@@ -4,3 +4,4 @@ dist-hook:
 	cp README.md $(distdir)
 	cp ZVK.py $(distdir)
 	cp sage-sirocco_interface.pyx $(distdir)
+	cp LICENSE $(distdir)
