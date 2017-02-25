@@ -3,10 +3,10 @@
 ## General description.
 
 This is a library for computing homotopy continuation of a given root of one 
-dimensional sections of bivariate complex polynomials. The output is a 
-piecewise linear aproximation of the path followed by the root, with the 
-property that there is a tubular neighborhood, with square transversal section, 
-that contains the actual path, and there is a three times thicker tubular 
+dimensional sections of bivariate complex polynomials (of degree greater than 2).
+The output is a piecewise linear aproximation of the path followed by the root, 
+with the property that there is a tubular neighborhood, with square transversal 
+section, that contains the actual path, and there is a three times thicker tubular 
 neigborhood guaranted to contain no other root of the polynomial. This second 
 property ensures that the piecewise linear approximation computed from all roots 
 of a polynomial form a topologically correct deformation of the actual braid, 
@@ -49,7 +49,7 @@ x^3, x^2 y, x y^2, y^3...$
 solution y0
 - A double precission float corresponding to the imaginary part of an 
 approximate solution y0
-  
+    
 The use of complex intervals allows us to represent polynomials with non 
 rational coefficients (even transcendental): just give an interval that 
 contains it.
@@ -118,26 +118,62 @@ sage: R.<x,y>=QQ[]
 sage: f = x^4*y - x^2*y - y^2 + y
 sage: followstrand(f, 0, 2, 1) 
 [(0.0, 1.0, 0.0),
- (0.08838834764831845, 0.9697265625, 0.0),
- (0.18495073095668707, 0.8818945614497176, 0.0),
- (0.2830354627446311, 0.7822431249849692, 0.0),
- (0.36442245301616083, 0.7509743697977961, 0.0),
- (0.4162134713480532, 0.7872237656367932, 0.0),
- (0.460346631682259, 0.8708786602233393, 0.0),
- (0.5011524089991131, 1.0046362459291838, 0.0),
- (0.5406631526749315, 1.1979177532866128, 0.0),
- (0.5801060727487398, 1.465872049076292, 0.0),
- (0.6203344167290801, 1.830059589826348, 0.0),
- (0.6620003579483648, 2.319953607100401, 0.0),
- (0.7056383582405797, 2.975174768739414, 0.0),
- (0.7517106691371234, 3.848570611753438, 0.0),
- (0.8006345979664276, 5.010356224191542, 0.0),
- (0.8528001455202311, 6.553629601012362, 0.0),
- (0.908582197461905, 8.601688407025646, 0.0),
- (0.9683494644216709, 11.317718460782247, 0.0),
+ (0.0625, 0.984619140625, 0.0),
+ (0.12764635845490785, 0.9390733273680929, 0.0),
+ (0.2052599190422273, 0.8598746563676689, 0.0),
+ (0.2738388312761707, 0.7900196735949514, 0.0),
+ (0.33595920835462223, 0.752354737862309, 0.0),
+ (0.37742976502219505, 0.7548738424164684, 0.0),
+ (0.41234462235565617, 0.7824404587459047, 0.0),
+ (0.44384260852985935, 0.8329353859054077, 0.0),
+ (0.4733854965730891, 0.907113389122892, 0.0),
+ (0.5018340661499732, 1.0074037381755196, 0.0),
+ (0.529765293818804, 1.137637068382814, 0.0),
+ (0.557600298953678, 1.3030485992155871, 0.0),
+ (0.5856659871973544, 1.5104164286992712, 0.0),
+ (0.6142284603481915, 1.7682957386440397, 0.0),
+ (0.6435127330480354, 2.0873408693121487, 0.0),
+ (0.6737151554114301, 2.480720326965522, 0.0),
+ (0.7050116648058133, 2.964637418672337, 0.0),
+ (0.7375635167677792, 3.558975212506035, 0.0),
+ (0.7715214229939402, 4.288090367126086, 0.0),
+ (0.8070286452864655, 5.181786778567655, 0.0),
+ (0.8442233838690689, 6.276507417916129, 0.0),
+ (0.8832406761016618, 7.616791574925573, 0.0),
+ (0.9242139476600717, 9.257055380403543, 0.0),
+ (0.9672763120876258, 11.263766404273989, 0.0),
  (1.0, 13.0, 0.0)]
 sage: fundamental_group(f)
 Finitely presented group < x0, x1 | x1*x0*x1^-1*x0^-1 >
+```
+
+We can specify the precission as follows:
+```
+sage: load("sage-sirocco_interface.pyx")
+Compiling ./sage-sirocco_interface.pyx...
+sage: load("ZVK.py")
+sage: R.<x,y>=QQ[]
+sage: f = x^4*y - x^2*y - y^2 + y
+sage: followstrand(f, 0, 2, 1, 64)
+[(0.000000000000000000, 1.00000000000000000, 0.000000000000000000),
+ (0.0883883476483184405, 0.969726562500000000, 0.000000000000000000),
+ (0.184950730956687066, 0.881894561449717605, 0.000000000000000000),
+ (0.283035462744631192, 0.782243124984969131, 0.000000000000000000),
+ (0.364422453016160885, 0.750974369797796147, 0.000000000000000000),
+ (0.416213471348053255, 0.787223765636793229, 0.000000000000000000),
+ (0.460346631682259060, 0.870878660223339468, 0.000000000000000000),
+ (0.501152408999113160, 1.00463624592918436, 0.000000000000000000),
+ (0.540663152674931619, 1.19791775328661377, 0.000000000000000000),
+ (0.580106072748739940, 1.46587204907629284, 0.000000000000000000),
+ (0.620334416729080238, 1.83005958982634992, 0.000000000000000000),
+ (0.662000357948364900, 2.31995360710040316, 0.000000000000000000),
+ (0.705638358240579886, 2.97517476873941566, 0.000000000000000000),
+ (0.751710669137123514, 3.84857061175344128, 0.000000000000000000),
+ (0.800634597966427747, 5.01035622419154600, 0.000000000000000000),
+ (0.852800145520231329, 6.55362960101237132, 0.000000000000000000),
+ (0.908582197461905312, 8.60168840702565921, 0.000000000000000000),
+ (0.968349464421671190, 11.3177184607822591, 0.000000000000000000),
+ (1.00000000000000000, 13.0000000000000000, 0.000000000000000000)]
 ```
 
 The command followstrand shows the path followed y the root y0=1 of f(x,y) when 
@@ -146,7 +182,7 @@ to use. By default it is set to 53 (and uses the double precission implementatio
 the computation fails, it falls back to a bigger precission until it succeeds).
 The command fundamental_group uses this approach to 
 compute the braid monodromy associated to this polynomial, and then uses it to 
-compute the fundamental group of its complement, using Zariski-VanKampen method.
+get a presentation of the fundamental group of its complement, using Zariski-VanKampen method.
 
 At some point we expect to have this included in SageMath as an optional (or 
 maybe even standard) package. When that happens, we will probably provide a 
@@ -155,7 +191,7 @@ computation.
 
 ## Dependencies:
 
-The deppendencies are:
+This library deppends on:
 
  - autotools/libtools/autoconf if you want to generate the configuration 
 scripts (only needed if you get the source code from a git repository)
