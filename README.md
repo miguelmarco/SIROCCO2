@@ -28,7 +28,7 @@ After installing the library, you can call it from any .cpp program by calling
 the homotopyPath or homotopyPath_mp functions. In the file test/test_example you can see a simple 
 example
  
-- Double precission:
+### Double precission:
 
 The input of the homotopyPath function is the following:
 
@@ -79,7 +79,7 @@ Note that the method might fail if there is a singularity (i.e. a value xt for
 which f(xt, y) has multiple roots). In that case, you will either get a NULL 
 value, or an infinite running time.
 
-- Arbitrary precission
+### Arbitrary precission
 
 The input of the homotopyPath_mp function is the following:
 
