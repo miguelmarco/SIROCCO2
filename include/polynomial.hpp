@@ -309,6 +309,16 @@ T Polynomial<T>::diffXX (const T &x, const T &y) const {
 
 	// sets output to 0+0i
 	T rop;
+    
+        if (this->degree == 1){
+    
+        return rop;
+    }
+    if (this->degree == 2)
+    {
+        rop = T(2)*(this->coef)[3];
+        return rop;
+    }
 
     // compute all powers of x and y
     // (from 0 to degree-2) (from 0 to degree-2) resp
@@ -340,6 +350,17 @@ T Polynomial<T>::diffXY (const T &x, const T &y) const {
 
 	// sets output to 0+0i
 	T rop;
+    
+        if (this->degree == 1){
+    
+        return rop;
+    }
+    if (this->degree == 2)
+    {
+        rop = T(2)*(this->coef)[4];
+        return rop;
+    }
+    
 
     // compute all powers of x and y
     // (from 0 to degree-2) (from 0 to degree-2) resp
@@ -372,6 +393,16 @@ T Polynomial<T>::diffYY (const T &x, const T &y) const {
 
 	// sets output to 0+0i
 	T rop;
+    
+    if (this->degree == 1){
+    
+        return rop;
+    }
+    if (this->degree == 2)
+    {
+        rop = T(2)*(this->coef)[5];
+        return rop;
+    }
 
     // compute all powers of x and y
     // (from 0 to degree-2) (from 0 to degree-2) resp
