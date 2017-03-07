@@ -239,6 +239,12 @@ T Polynomial<T>::diffX (const T &x, const T &y) const {
 
 	// sets output to 0+0i
 	T rop;
+    
+    if (this->degree == 1){
+    
+        rop = (this->coef)[1];
+        return rop;
+    }
 
     // compute all powers of x and y
     // (from 0 to degree-1) (from 0 to degree) resp
@@ -271,6 +277,12 @@ T Polynomial<T>::evalPolYClassic (const T &x, const T &y) const {
 
 	// sets output to 0+0i
 	T rop;
+    
+    if (this->degree == 1){
+        rop = (this->coef)[2];
+        return rop;
+        
+    }
 
     // compute all powers of x and y
     // (from 0 to degree) (from 0 to degree-1) resp
