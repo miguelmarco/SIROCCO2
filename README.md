@@ -4,17 +4,17 @@
 
 This is a library for computing homotopy continuation of a given root of one
 dimensional sections of bivariate complex polynomials.
-The output is a piecewise linear aproximation of the path followed by the root,
+The output is a piecewise linear approximation of the path followed by the root,
 with the property that there is a tubular neighborhood, with square transversal
 section, that contains the actual path, and there is a three times thicker tubular
-neigborhood guaranted to contain no other root of the polynomial. This second
+neighborhood guaranted to contain no other root of the polynomial. This second
 property ensures that the piecewise linear approximation computed from all roots
 of a polynomial form a topologically correct deformation of the actual braid,
 since the inner tubular neighborhoods cannot intersect.
 
 The first version of the library was written in C, and provided only double
 precission. This is the second version, rewritten in C++, and provides the
-possibility of using arbitrary precission computations. Hence, it deppends on
+possibility of using arbitrary precission computations. Hence, it depends on
 the [MPFR](http://www.mpfr.org/) and [GMP](https://gmplib.org/) libraries.
 
 ## Authors:
@@ -105,7 +105,7 @@ library from a [sagemath](https://www.sagemath.org) session. The relevant files
 for that are `sage-sirocco_interface.pyx` and `ZVK.py`. The first one contains
 the interface code, and the second one several functions to compute the
 fundamental group of the complement of a curve in the complex plane, using this
-library. Reffer to the comments in `ZVK.py` for a more detailed explanation of
+library. Refer to the comments in `ZVK.py` for a more detailed explanation of
 the functions available there.
 
 An example of session using this library can be the following
