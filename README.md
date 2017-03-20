@@ -3,7 +3,7 @@
 ## General description.
 
 This is a library for computing homotopy continuation of a given root of one
-dimensional sections of bivariate complex polynomials (of degree greater than 2).
+dimensional sections of bivariate complex polynomials.
 The output is a piecewise linear aproximation of the path followed by the root,
 with the property that there is a tubular neighborhood, with square transversal
 section, that contains the actual path, and there is a three times thicker tubular
@@ -25,7 +25,7 @@ the [MPFR](http://www.mpfr.org/) and [GMP](https://gmplib.org/) libraries.
 ## Usage:
 
 After installing the library, you can call it from any .cpp program by calling
-the homotopyPath or homotopyPath_mp functions. In the file tests/sirocco_test.cpp
+the `homotopyPath` or `homotopyPath_mp` functions. In the file tests/sirocco_test.cpp
 you can see a simple example
 
 ### Double precission:
