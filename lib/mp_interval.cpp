@@ -80,21 +80,25 @@ MPInterval & MPInterval::operator= (const MPInterval &op) {
 	// UPDATE VALUES
 	mpfr_set (this->a, op.a, MPFR_RNDD);
 	mpfr_set (this->b, op.b, MPFR_RNDU);
+	return *this;
 }
 MPInterval & MPInterval::operator= (const Interval &op) {
 	// UPDATE VALUES
 	mpfr_set_d (this->a, op.a, MPFR_RNDD);
 	mpfr_set_d (this->b, op.b, MPFR_RNDU);
+	return *this;
 }
 MPInterval & MPInterval::operator= (const mpfr_t op) {
 	// UPDATE VALUES
 	mpfr_set (this->a, op, MPFR_RNDD);
 	mpfr_set (this->b, op, MPFR_RNDU);
+	return *this;
 }
 MPInterval & MPInterval::operator= (double op) {
 	// UPDATE VALUES
 	mpfr_set_d (this->a, op, MPFR_RNDD);
 	mpfr_set_d (this->b, op, MPFR_RNDU);
+	return *this;
 }
 
 
