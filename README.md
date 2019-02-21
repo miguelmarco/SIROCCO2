@@ -1,5 +1,19 @@
 # Sirocco Is a ROot Certified COntinuator
 
+## Update:
+
+Siroco is included as an optional package since version 8 of SageMath. This meants that,
+in order to use it within Sage, you don't need to go through the instruction discussed here.
+Just install it as any other optional Sage package:
+
+```
+sage -i sirocco
+```
+
+and you can use it from Sage as explained in the Sage documentation for 
+[affine](https://doc.sagemath.org/html/en/reference/curves/sage/schemes/curves/affine_curve.html#sage.schemes.curves.affine_curve.AffinePlaneCurve.fundamental_group)
+and [projective](https://doc.sagemath.org/html/en/reference/curves/sage/schemes/curves/projective_curve.html#sage.schemes.curves.projective_curve.ProjectivePlaneCurve.fundamental_group) curves.
+
 ## General description.
 
 This is a library for computing homotopy continuation of a given root of one
