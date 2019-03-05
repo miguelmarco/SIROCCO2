@@ -203,6 +203,16 @@ maybe even standard) package. When that happens, we will probably provide a
 more natural interface for the fundamental group and/or braid monodromy
 computation.
 
+
+### Update:
+
+As mentioned before, Sirocco is already included as an optional package in Sage. This means that it can be easily installed in your Sage install by running:
+```
+sage -i sirocco
+```
+After doing that, you can compute fundamental groups of affine and projective curves as explained before.
+
+
 ## Dependencies:
 
 This library deppends on:
