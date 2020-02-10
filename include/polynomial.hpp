@@ -232,6 +232,10 @@ T Polynomial<T>::operator() (const T &x, const T &y) const {
 	return this->evalPolClassic (x,y);
 }
 
+// Defined in lib/polynomial.cpp
+template <> IComplex Polynomial<IComplex>::operator() (const IComplex &x, const IComplex &y) const;
+template <> MPIComplex Polynomial<MPIComplex>::operator () (const MPIComplex &x, const MPIComplex &y) const;
+
 template <class T>
 T Polynomial<T>::diffX (const T &x, const T &y) const {
 		// coef[(i*(i+1))/2 + j] is coeficient of monomial of degree 'i',
@@ -312,6 +316,10 @@ template <class T>
 T Polynomial<T>::diffY (const T &x, const T &y) const {
 	return this->evalPolYClassic (x,y);
 }
+
+// Defined in lib/polynomial.cpp
+template <> IComplex Polynomial<IComplex>::diffY (const IComplex &x, const IComplex &y) const;
+template <> MPIComplex Polynomial<MPIComplex>::diffY (const MPIComplex &x, const MPIComplex &y) const;
 
 
 template <class T>
