@@ -13,6 +13,9 @@ lib/Makefile.in
 lib/*.lo
 lib/*.o
 lib/*.la
+*.dll*
+*.dylib
+*.exe
 *.tar.gz
 libtool
 m4/
@@ -24,3 +27,6 @@ tests/*.trs
 tests/*_test
 tests/Makefile
 tests/Makefile.in
+
+# editor temp files
+*.sw[nop]
