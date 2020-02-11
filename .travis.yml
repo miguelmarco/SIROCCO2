@@ -1,0 +1,12 @@
+language: cpp
+dist: bionic
+compiler:
+    - gcc
+    - clang
+os:
+    - linux
+script:
+    - autoreconf -f -i
+    - ./configure
+    - make
+    - make check
