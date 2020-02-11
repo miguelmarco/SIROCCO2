@@ -1,12 +1,15 @@
 language: cpp
+os: linux
 dist: bionic
 compiler:
-    - gcc
-    - clang
-os:
-    - linux
+  - gcc
+  - clang
+addons:
+  apt:
+    packages:
+      - libmpfr-dev
 script:
-    - autoreconf -f -i
-    - ./configure
-    - make
-    - make check
+  - autoreconf -f -i
+  - ./configure
+  - make
+  - make check
