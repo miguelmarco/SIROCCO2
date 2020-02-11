@@ -8,7 +8,9 @@
 
 
 // ACTIVATE ROUND MODE CONTROL
-#pragma STDC FENV_ACCESS on
+#ifndef __clang__
+#pragma STDC FENV_ACCESS ON
+#endif
 
 typedef std::complex<double> Complex;
 

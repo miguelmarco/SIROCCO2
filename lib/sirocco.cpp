@@ -17,7 +17,9 @@ using namespace std;
 // z2 = t(1+0.01i)
 ******************************************/
 
+#ifndef __clang__
 #pragma STDC FENV_ACCESS ON
+#endif
 
 // PERFORM A MINIMUM OF 5 ITERATIONS OF NEWTON METHOD TO CORRECT THE APPROXIMATION OF THE ROOT (SUPPOSED TO BE GOOD ENOUGH)
 template <>

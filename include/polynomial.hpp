@@ -73,7 +73,7 @@ template <class T>
 std::ostream & operator<< (std::ostream &output, const Polynomial<T> &op) {
 	int allZero = 1;
 	for (int i=0; i<=op.degree; ++i)
-		for (int j=0; j<=i; ++j){
+		for (int j=0; j<=i; ++j) {
 			if (op.coef[i*(i+1)/2 + j] == 0.0) continue;
 			allZero = 0;
 			if (op.coef[i*(i+1)/2 + j] == -1.0)
@@ -85,26 +85,28 @@ std::ostream & operator<< (std::ostream &output, const Polynomial<T> &op) {
 			if (i == 0)
 				if (op.coef[0] == T(1))
 					output << "1";
-			if (i != 0)
-				if (i-j == 0)
+			if (i != 0) {
+				if (i-j == 0) {
 					if (j == 1)
 						output << "y";
 					else
 						output << "y^" << j;
-				else if (i-j == 1)
+				} else if (i-j == 1) {
 					if (j == 0)
 						output << "x";
 					else if (j == 1)
 						output << "x*y";
 					else
 						output << "x*y^" << j;
-				else
+				} else {
 					if (j == 0)
 						output << "x^" << i;
 					else if (j == 1)
 						output << "x^" << (i-j) << "*y";
 					else
 						output << "x^" << (i-j) << "*y^" << j;
+				}
+			}
 		}
 	if (allZero) output << "0";
 	return output;

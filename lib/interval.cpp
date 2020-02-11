@@ -5,7 +5,9 @@
 
 
 // ACTIVATE ROUND MODE CONTROL
-#pragma STDC FENV_ACCESS on
+#ifndef __clang__
+#pragma STDC FENV_ACCESS ON
+#endif
 
 // MACROS FOR MIN AND MAX
 #define MIN(a,b) (((a) < (b))? (a) : (b))
