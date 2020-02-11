@@ -17,5 +17,10 @@ lib/*.la
 libtool
 m4/
 tests/.deps/
+tests/.libs/
+tests/*.log
+tests/*.o
+tests/*.trs
+tests/*_test
 tests/Makefile
 tests/Makefile.in

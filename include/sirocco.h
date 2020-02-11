@@ -5,7 +5,9 @@
 #include <mpfr.h>
 
 // ACTIVATE ROUND MODE CONTROL
-#pragma STDC FENV_ACCESS on
+#ifndef __clang__
+#pragma STDC FENV_ACCESS ON
+#endif
 
 
 double * homotopyPath (int degree, double *_coef, double _y0R, double _y0I);

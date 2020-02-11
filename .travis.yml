@@ -1,0 +1,17 @@
+language: cpp
+os: linux
+dist: bionic
+compiler:
+  - gcc
+  - clang
+addons:
+  apt:
+    packages:
+      - libmpfr-dev
+script:
+  - autoreconf -f -i
+  - ./configure
+  - make
+  - make check
+after_failure:
+  - tail -n +1 tests/*.log 2>/dev/null
