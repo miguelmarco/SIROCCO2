@@ -13,3 +13,5 @@ script:
   - ./configure
   - make
   - make check
+after_failure:
+  - tail -n +1 tests/*.log 2>/dev/null
