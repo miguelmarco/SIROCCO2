@@ -10,7 +10,7 @@ Just install it as any other optional Sage package:
 sage -i sirocco
 ```
 
-and you can use it from Sage as explained in the Sage documentation for 
+and you can use it from Sage as explained in the Sage documentation for
 [affine](https://doc.sagemath.org/html/en/reference/curves/sage/schemes/curves/affine_curve.html#sage.schemes.curves.affine_curve.AffinePlaneCurve.fundamental_group)
 and [projective](https://doc.sagemath.org/html/en/reference/curves/sage/schemes/curves/projective_curve.html#sage.schemes.curves.projective_curve.ProjectivePlaneCurve.fundamental_group) curves.
 
@@ -277,8 +277,32 @@ make install
 
 as before.
 
-## To do:
+## Multiple components:
 
- - include an option for passing the factors of the polynomial, for the cases
-where the original polynomial is reducible. This might speed up the computations
+In the case where the polynomial is reducible, its roots can be tracked for each
+factor separatedly. In that case, each root is tracked for its corresponding factor,
+making sure that there is no root of the other factors in the corresponding bounding
+box.
 
+The functions to do so are `homotopyPath_comps` and `homotopyPath_mp_comps`.
+Their interface is similar to the ones of `homotopyPath` and `homotopyPath_mp`, but
+including the other factors. That is:
+
+- `int degree`  : the degree of the factor whose root is being tracked
+- `double *_coef` : a malloc'ed array with the coefficients of that factor
+- `double _y0R` : the real part of the starting root
+- `double _y0I` : the imaginary part of the starting root
+- `int nothercomps` : the number of the other factors of the polynomial
+- `int *degreescomps` : an array with the degrees of the other factors
+- `double *_coefscomps` : an array with the coefficients of the other factors, all concatenated in just one array.
+
+The multiple precission version works similarly, but changing the doubles by mpfr numbers, and having an extra parameter with the used precission:
+
+- `int degree`  : the degree of the factor whose root is being tracked
+- `mpfr_t *_coef` : a malloc'ed array with the coefficients of that factor
+- `mpfr_t _y0R` : the real part of the starting root
+- `mpfr_t _y0I` : the imaginary part of the starting root
+- `int prec` : the used precission
+- `int nothercomps` : the number of the other factors of the polynomial
+- `int *degreescomps` : an array with the degrees of the other factors
+- `mpfr_t *_coefscomps` : an array with the coefficients of the other factors, all concatenated in just one array.
