@@ -306,3 +306,7 @@ The multiple precission version works similarly, but changing the doubles by mpf
 - `int nothercomps` : the number of the other factors of the polynomial
 - `int *degreescomps` : an array with the degrees of the other factors
 - `mpfr_t *_coefscomps` : an array with the coefficients of the other factors, all concatenated in just one array.
+
+# License
+
+Sirocco is released under the terms of the GPL, version 3.0, as described in LICENSE
