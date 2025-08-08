@@ -17,6 +17,7 @@ lib/*.la
 *.dylib
 *.exe
 *.tar.gz
+*.pc
 libtool
 m4/
 tests/.deps/
@@ -30,3 +31,4 @@ tests/Makefile.in
 
 # editor temp files
 *.sw[nop]
+*~
